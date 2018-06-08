@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MS Calc_v3</title>
+	<link href="../css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="../js/jquery-1.10.2.js"></script>
+	<script src="../js/jquery-ui-1.10.4.custom.js"></script>
+	<script type="text/javascript" src="../js/jqplot/jquery.jqplot.min.js"></script>
+	<script type="text/javascript" src="../js/jqplot/plugins/jqplot.barRenderer.min.js"></script>
+	<script type="text/javascript" src="../js/jqplot/plugins/jqplot.highlighter.min.js"></script>
+	<script type="text/javascript" src="../js/jqplot/plugins/jqplot.cursor.min.js"></script>
+	<script type="text/javascript" src="../js/jqplot/plugins/jqplot.pointLabels.min.js"></script>
+	<script src='../js/math.js' type='text/javascript'></script>
+	<link rel="stylesheet" type="text/css" href="../css/jqplot/jquery.jqplot.min.css" />
+	<style type="text/css">
+	.button {
+	    background-color: #1c94c4; /* Green */
+	    border: none;
+	    color: white;
+	    padding: 10px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	}
+	</style>
+	<script type="text/javascript">
+		var plot1;
+		$(document).ready(function(){
+			var parser = math.parser();
+			
+			var result = opener.result.textContent;
+			var calculate = result.replace('f(x)=', '').replace('g(x)=','').split(',');
+        	var fArray = [];
+        	var gArray = [];
+        	var pCalculate = '';
+        	var y = 0;
+        	for(var i = -1000; i <= 1000; i++) {
+        		for(var j = 0; j < 2; j++) {
+            		pCalculate =calculate[j].replace(/x/gi, i); 
+                	y =parser.eval(pCalculate);
+                	if(j == 0) {
+                		fArray.push([i, y]);
+                	} else {
+                		gArray.push([i, y]);
+                	}
+        		}
+        	}
+        	if(plot1 != null) {
+        		plot1.destroy();
+        	}
+        	
+        	$('#displayText').text('함수식 : ' + result);
+        	plot1 = $.jqplot('chart', [fArray, gArray], {  
+        	      series:[{showMarker:false},{showMarker:false}],
+        	      axes:{
+        	        xaxis:{
+        	        	min : -500,
+        	        	max:500,
+        	          label:'X'
+        	        },
+        	        yaxis:{
+        	        	min : -500,
+        	        	max:500,
+        	          label:'Y'
+        	        }
+        	      }, 
+       	        cursor:{
+       	            show: true, 
+       	            zoom: true
+       	        },
+           	      highlighter: {
+           	        show: true,
+           	        sizeAdjust: 7.5
+           	      }
+        	  });
+		});
+	</script>
+</head>
+<body>
+	<div>**<font style="color: rgb(234,162,40);">f(x)</font>와 <font style="color: rgb(95,182,197);">g(x)</font>는 색으로 구분하였습니다**</div>
+	<h4 id="displayText"></h4>
+	<div id="chart"></div>
+	<br/>
+	<div style="text-align: center;">
+		<input type="button" class="button" value="닫기" onClick="javascript:window.close();">
+	</div>
+</body>
+</html>
