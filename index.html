@@ -21,34 +21,37 @@
 
         <style type="text/css">
         #total{
-            width:417px;
-            height:683px;
+            width:834px;
+            height:1366px;
         }
         #calculator {
-            width: 417px;
+            width: 834px;
             background-color: rgb(238, 238, 238);
             font-size: 0px;  
+            position: relative;
         }
         #calculatorR {
             background-color: rgb(238, 238, 238);
-            width:417px;
+            width:834px;
+            position: relative;
         }
            
             #result {
-                width: 415px;
-                height: 170px;
+                width: 832px;
+                height: 340px;
                 border: 1px solid rgb(207, 206, 206);  
-                font: 30px digital;
+                font: 60px digital;
                 background-color: rgba(168, 230, 207, 0.9);
             }
     
             .key {
                 display:inline-table;
-                width: 82px;
-                height: 51px;
+                width: 164px;
+                height: 102px;
                 border: 1px solid rgb(207, 206, 206);   
-                font: bold 25px sans-serif;
+                font: bold 50px sans-serif;
                 text-align:center;
+                line-height: 102px;
             }
             .numbutton {
               background-color: rgba(253, 255, 171, 0.7);
@@ -149,10 +152,10 @@
         <div id="calculatorR">
                 <div id="tabs">
                     <ul>
-                        <li><a href="#tabs-1">함수</a></li>
-                        <li><a href="#tabs-2">변수/괄호</a></li>
-                        <li><a href="#tabs-3">비교</a></li>
-                        <li><a href="#tabs-4">그래프</a></li>
+                        <li style="font-size: 40px;"><a href="#tabs-1">함수</a></li>
+                        <li style="font-size: 40px;"><a href="#tabs-2">변수/괄호</a></li>
+                        <li style="font-size: 40px;"><a href="#tabs-3">비교</a></li>
+                        <li style="font-size: 40px;"><a href="#tabs-4">그래프</a></li>
                     </ul>
                     <div id="tabs-1">
                         <span class="key button2">f</span>
@@ -185,12 +188,9 @@
                         <span class="key button2">g(x)</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="key button2">출력</span><br>
-                        <div>[사용법] <font style="color: green;">f(x)=x^2+2*x+1, g(x)=x+3</font>과 같이</div>
-                        <div> 원하는 함수 입력 후 출력 버튼</div>
-                       <!--  <p>123456789</p>
-                        <p>123456789</p> -->
+                        <div style="font-size:33px;">[사용법] <font style="color: green;">f(x)=x^2+2*x+1, g(x)=x+3</font>과 같이</div>
+                        <div style="font-size:33px;"> 원하는 함수 입력 후 출력 버튼</div>
                         <body onload="draw()">
-                        <!-- <canvas id="canvas" width="417" height="108"></canvas> -->
                     </div>
                 </div>
             </div>
@@ -227,6 +227,11 @@
             <span class="key evlbutton">EV</span>
             <span class="key impbutton">CL</span>
         </div>
+    </div>
+    <div position:relative; style="margin-top: -70px; height: 110px; word-break:break-all;">
+<img src = "css/images/help.jpg" style="width:100px; height: 100px;">
+<span style="font-size:40px; vertical-align: 30px;">도움이 필요하시면
+하단 이미지를 클릭해주세요.</span>
     </div>
     </body>
 </html>
