@@ -744,7 +744,8 @@ button.ui-button::-moz-focus-inner {
 	border-bottom-width: 0;
 	padding: 0;
 	white-space: nowrap;
-	margin-left:3px;
+	margin-left: 10px;
+	margin-right: -5px;
 }
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
 	float: left;
