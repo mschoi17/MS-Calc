@@ -31,14 +31,14 @@
 			var parser = math.parser();
 			
 			var result = opener.result.textContent;
-			var calculate = result.replace('f(x)=', '').replace('g(x)=','').split(',');
+			var calculate = result.replace('f(x)=', '').replace('g(x)=','').replace('x','(x)').split(',');
         	var fArray = [];
         	var gArray = [];
         	var pCalculate = '';
         	var y = 0;
         	for(var i = -1000; i <= 1000; i++) {
         		for(var j = 0; j < 2; j++) {
-            		pCalculate =calculate[j].replace(/x/gi, i); 
+            		pCalculate =calculate[j].replace(/x/gi, (i)); 
                 	y =parser.eval(pCalculate);
                 	if(j == 0) {
                 		fArray.push([i, y]);
