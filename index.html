@@ -117,6 +117,16 @@
                                 displayValue = '0';
                                 $('#result').text(displayValue);
                             }
+                            else if($(this).text() == 'DEL')
+                            {
+                                displayValue = displayValue.toString().slice(0, -1);
+                                $('#result').text(displayValue);
+                                if(displayValue.length == 0)
+                                {
+                                    displayValue = '0';
+                                   $('#result').text(displayValue);
+                                }
+                            }
                             else if($(this).text() == '출력') {
                                	var result = $('#result').text();
                                	if(result.indexOf('f(x)') == -1 || result.indexOf('g(x)') == -1) {
@@ -166,6 +176,7 @@
                         <span class="key button2">)</span>
                         <span class="key button2">[</span>
                         <span class="key button2">]</span>
+                        <span class="key button2">;</span>
                         <span class="key button2">w</span>
                         <span class="key button2">z</span>
                     </div>
@@ -200,12 +211,12 @@
             <span class="key button4">det</span>
             <span class="key button3">=</span>
             <span class="key button3">:</span>
-            <span class="key button3">;</span>
+            <span class="key button3">^</span>
             <span class="key numbutton">7</span>
             <span class="key numbutton">8</span>
             <span class="key numbutton">9</span>
-            <span class="key simpbutton">*</span>
-            <span class="key simpbutton">^</span>
+            <span class="key impbutton">DEL</span>
+            <span class="key impbutton">CL</span>
             <span class="key numbutton">4</span>
             <span class="key numbutton">5</span>
             <span class="key numbutton">6</span>
@@ -214,13 +225,13 @@
             <span class="key numbutton">1</span>
             <span class="key numbutton">2</span>
             <span class="key numbutton">3</span>
+            <span class="key simpbutton">*</span>
             <span class="key simpbutton">/</span>
-            <span class="key simpbutton">%</span>
             <span class="key numbutton">,</span>                
             <span class="key numbutton">0</span>
             <span class="key numbutton">.</span>
+            <span class="key simpbutton">%</span>
             <span class="key evlbutton">EV</span>
-            <span class="key impbutton">CL</span>
         </div>
     </div>
     <a href = "help/help_main.html"><div position:relative; style="margin-top: -30px; height: 110px; word-break:break-all;">
